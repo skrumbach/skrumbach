@@ -19,23 +19,15 @@ South Carolina, USA
 ## Featured repos
 
 <p>
-  <a href="https://github.com/skrumbach/home-ops"><img src="https://github-readme-stats.vercel.app/api/pin/?username=skrumbach&repo=home-ops&bg_color=060818&title_color=22D8F0&icon_color=A57BFF&text_color=CDD2E6&border_color=3B2E7A" alt="home-ops"></a>
-  <a href="https://github.com/skrumbach/mortyops"><img src="https://github-readme-stats.vercel.app/api/pin/?username=skrumbach&repo=mortyops&bg_color=060818&title_color=22D8F0&icon_color=A57BFF&text_color=CDD2E6&border_color=3B2E7A" alt="mortyops"></a>
+  <a href="https://github.com/skrumbach/home-ops"><img src="./profile/pin-home-ops.svg" alt="home-ops"></a>
+  <a href="https://github.com/skrumbach/mortyops"><img src="./profile/pin-mortyops.svg" alt="mortyops"></a>
 </p>
 
 ## GitHub stats
 
 <p>
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=skrumbach&show_icons=true&include_all_commits=true&count_private=true&bg_color=060818&title_color=22D8F0&icon_color=D946E6&text_color=CDD2E6&border_color=3B2E7A" alt="GitHub stats">
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=skrumbach&layout=compact&langs_count=8&bg_color=060818&title_color=22D8F0&text_color=CDD2E6&border_color=3B2E7A" alt="Top languages">
-</p>
-
-<p>
-  <img src="https://streak-stats.demolab.com?user=skrumbach&background=060818&border=3B2E7A&ring=22D8F0&fire=D946E6&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=22D8F0&sideLabels=CDD2E6&dates=7C83A5" alt="Contribution streak">
-</p>
-
-<p>
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=skrumbach&bg_color=060818&color=CDD2E6&line=22D8F0&point=D946E6&area=true&area_color=8B55F5&hide_border=true" alt="Contribution graph">
+  <img height="170" src="./profile/stats.svg" alt="GitHub stats">
+  <img height="170" src="./profile/top-langs.svg" alt="Top languages">
 </p>
 
 ## Experience
