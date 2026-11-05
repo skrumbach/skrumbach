@@ -104,6 +104,15 @@ test('parseKromgo handles numbers, suffixes, versions and empty results', () => 
   assert.equal(parseKromgo({}, false), undefined);
 });
 
+test('parseKromgo reads the /badges/<id>?format=json shape', () => {
+  assert.equal(parseKromgo({ id: 'ai_tokens_7d', value: '24.32M', result: 24318375 }, false), 24318375);
+  assert.equal(parseKromgo({ id: 'gpu_temp_celsius', value: '52°C', result: 52 }, false), 52);
+  assert.equal(parseKromgo({ id: 'talos_version', value: '1.14.5', result: 1, labels: { version_id: '1.14.5' } }, true), '1.14.5');
+  assert.equal(parseKromgo({ id: 'llm_model', value: 'Qwen3.8-35B-A3B-Distill', result: 0 }, true), 'Qwen3.8-35B-A3B-Distill');
+  assert.equal(parseKromgo({ id: 'cluster_alert_count', value: '0', result: 0 }, false), 0);
+  assert.equal(parseKromgo({ schemaVersion: 1, label: 'x', message: 'Not Found', isError: true }, false), undefined);
+});
+
 test('mergeHomelab keeps last known values and only advances `updated` when data arrived', () => {
   const prev = { updated: '2026-11-01T00:00:00Z', values: { cpu: 10, pods: 100 } };
   const now = new Date('2026-11-04T00:00:00Z');

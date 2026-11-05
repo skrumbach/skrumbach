@@ -45,7 +45,7 @@ export default {
     repoLink: 'github.com/skrumbach/home-ops',
     // Data older than this is shown as "last seen" instead of live.
     staleAfterHours: 24,
-    // kromgo metric ids (GET <KROMGO_URL>/<id>). Keys are what the renderer uses.
+    // kromgo metric ids (GET <KROMGO_URL>/badges/<id>?format=json). Keys are what the renderer uses.
     metrics: {
       talos: 'talos_version',
       kubernetes: 'kubernetes_version',
@@ -55,7 +55,6 @@ export default {
       pods: 'cluster_pod_count',
       cpu: 'cluster_cpu_usage',
       mem: 'cluster_memory_usage',
-      power: 'cluster_power_usage',
       age: 'cluster_age_days',
       uptime: 'cluster_uptime_days',
       alerts: 'cluster_alert_count',

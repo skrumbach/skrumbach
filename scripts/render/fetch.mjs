@@ -77,11 +77,16 @@ export async function fetchGitHub(login, token, featured, prev) {
 }
 
 /* ---------------- homelab (kromgo) ---------------- */
-// kromgo's default response is a shields.io endpoint: { schemaVersion, label, message, color }.
+// GET <KROMGO_URL>/badges/<id>?format=json → { id, title, value, result, color?, labels? }.
+// `value` is the display string (versions, model name), `result` the raw number.
+// The older shields endpoint shape ({ message }) is still accepted.
 export function parseKromgo(json, isText) {
-  const msg = json && typeof json.message === 'string' ? json.message.trim() : null;
-  if (!msg || /^(no data|error|n\/a|nan)$/i.test(msg)) return undefined;
+  if (!json || json.isError) return undefined;
+  const raw = json.value ?? json.message;
+  const msg = typeof raw === 'string' ? raw.trim() : null;
+  if (!msg || /^(no data|error|not found|n\/a|nan)$/i.test(msg)) return undefined;
   if (isText) return msg.replace(/^v(?=\d)/, '');
+  if (typeof json.result === 'number' && Number.isFinite(json.result)) return json.result;
   const v = parseFloat(msg.replace(/,/g, ''));
   return Number.isFinite(v) ? v : undefined;
 }
@@ -91,7 +96,7 @@ export async function fetchKromgo(base, metrics, textKeys, { timeout = 10_000 } 
   await Promise.all(Object.entries(metrics).map(async ([key, id]) => {
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
-        const res = await fetch(`${base.replace(/\/$/, '')}/${id}`, { headers: { 'user-agent': UA, accept: 'application/json' }, signal: AbortSignal.timeout(timeout) });
+        const res = await fetch(`${base.replace(/\/$/, '')}/badges/${encodeURIComponent(id)}?format=json`, { headers: { 'user-agent': UA, accept: 'application/json' }, signal: AbortSignal.timeout(timeout) });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const v = parseKromgo(await res.json(), textKeys.includes(key));
         if (v === undefined) throw new Error('no value');
@@ -107,7 +112,7 @@ export function mergeHomelab(prev, fetched, now = new Date()) {
   const got = Object.keys(fetched.values).length;
   return {
     updated: got ? now.toISOString() : prev?.updated ?? null,
-    values: { ...(prev?.values || {}), ...fetched.values },
+    values: Object.fromEntries(Object.entries({ ...(prev?.values || {}), ...fetched.values }).sort(([a], [b]) => a.localeCompare(b))),
     missing: fetched.missing.map(m => m.split(' ')[0]),
   };
 }

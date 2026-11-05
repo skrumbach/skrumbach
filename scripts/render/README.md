@@ -30,7 +30,7 @@ open "preview.html?src=build/profile.sample.svg"   # the fixture render
 | Secret | Needed for |
 |---|---|
 | `GITHUB_TOKEN` | provided automatically; public GitHub stats |
-| `KROMGO_URL` | base URL of the public kromgo instance (homelab, AI and GPU stats) |
+| `KROMGO_URL` | base URL of the public kromgo instance, e.g. `https://kromgo.sklab.dev`; each metric is read from `/badges/<id>?format=json` |
 
 The kromgo metric ids the renderer expects are listed in `profile.config.mjs` under
 `homelab.metrics`; the queries live in `skrumbach/home-ops`

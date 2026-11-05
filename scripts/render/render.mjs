@@ -22,7 +22,7 @@ export function buildModel(cfg, data, now = new Date()) {
     context: cfg.homelab.context, stale,
     never: !updatedAt, updated: updatedAt ? stamp(updatedAt) : 'never', updatedDate: updatedAt ? stamp(updatedAt).slice(0, 10) : 'NEVER',
     talos: v.talos, kubernetes: v.kubernetes, flux: v.flux, nodes: v.nodes, nodesReady: v.nodesReady, pods: v.pods,
-    cpu: v.cpu, mem: v.mem, power: v.power, age: v.age, uptime: v.uptime, alerts: v.alerts,
+    cpu: v.cpu, mem: v.mem, gpuPower: v.gpuPower, gpuTemp: v.gpuTemp, age: v.age, uptime: v.uptime, alerts: v.alerts,
   };
   const AI = { caption: cfg.ai.caption, tokens7d: v.tokens7d, requests7d: v.requests7d, localShare: v.localShare, cacheHit: v.cacheHit };
   const m = cfg.gpu.models?.[v.model] || {};

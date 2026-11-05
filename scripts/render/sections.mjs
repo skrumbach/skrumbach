@@ -61,7 +61,8 @@ function k9sBody(p, x, y, w, H) {
     return s + `<clipPath id="${id}"><rect x="${(bx + 52 + cw).toFixed(1)}" y="${yy - 13}" height="17" width="0"><animate attributeName="width" values="${Array.from({ length: on + 1 }, (_, i) => (i * cw).toFixed(1)).join(';')}" dur="${(on * 0.07).toFixed(2)}s" begin="1.2s" fill="freeze" calcMode="discrete"/></rect></clipPath><g clip-path="url(#${id})">${pipes}</g>`;
   };
   out += bar(y, 'CPU:', H.cpu) + bar(y + 20, 'MEM:', H.mem);
-  out += T(bx, y + 40, 'PWR:', { f: F.mono, size: 13, w: 700, fill: C.amber }) + T(bx + 52, y + 40, isNum(H.power) ? `${Math.round(H.power)} W` : dash, { f: F.mono, size: 13, fill: C.white });
+  const gpu = [isNum(H.gpuPower) && `${Math.round(H.gpuPower)} W`, isNum(H.gpuTemp) && `${Math.round(H.gpuTemp)}°C`].filter(Boolean).join(' · ') || dash;
+  out += T(bx, y + 40, 'GPU:', { f: F.mono, size: 13, w: 700, fill: C.amber }) + T(bx + 52, y + 40, gpu, { f: F.mono, size: 13, fill: C.white });
   out += T(bx, y + 60, 'ALRT:', { f: F.mono, size: 13, w: 700, fill: C.amber }) + T(bx + 52, y + 60, !isNum(H.alerts) ? dash : H.alerts ? `${H.alerts} firing` : '0 firing ✓', { f: F.mono, size: 13, fill: !isNum(H.alerts) ? C.dim : H.alerts ? C.red : C.green });
   // summary table
   const ty = y + 104;
