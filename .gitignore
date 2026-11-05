@@ -1,0 +1,4 @@
+node_modules/
+build/
+mockups/
+.DS_Store

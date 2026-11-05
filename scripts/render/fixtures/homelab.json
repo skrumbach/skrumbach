@@ -1,0 +1,30 @@
+{
+ "updated": "2026-11-04T05:17:00Z",
+ "sample": true,
+ "values": {
+  "talos": "1.11.3",
+  "kubernetes": "1.34.1",
+  "flux": "2.7.2",
+  "nodes": 3,
+  "nodesReady": 3,
+  "pods": 187,
+  "cpu": 14.2,
+  "mem": 46.8,
+  "power": 212,
+  "age": 412,
+  "uptime": 23,
+  "alerts": 0,
+  "tokens7d": 48200000.0,
+  "requests7d": 31400,
+  "localShare": 68,
+  "cacheHit": 23,
+  "vramUsed": 26.8,
+  "vramTotal": 31.9,
+  "gpuTemp": 58,
+  "gpuPower": 118,
+  "fan": 1420,
+  "decode": 81,
+  "model": "Qwen3.8-35B-A3B-Distill",
+  "slotsBusy": 1
+ }
+}

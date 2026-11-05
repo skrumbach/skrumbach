@@ -1,1 +1,15 @@
-<!doctype html><meta charset="utf-8"><title>README preview</title><body style="margin:0;background:#0d1117;"><div style="max-width:880px;margin:24px auto;padding:24px;border:1px solid #30363d;border-radius:6px;display:flex;flex-direction:column;gap:12px;"><img src="assets/hero.svg" style="width:100%"><img src="assets/about.svg" style="width:100%"><img src="assets/section-repos.svg" style="width:100%"><img src="assets/section-stats.svg" style="width:100%"><img src="assets/experience.svg" style="width:100%"><img src="assets/connect.svg" style="width:100%"><div style="display:flex;gap:8px;justify-content:center"><img src="assets/btn-linkedin.svg"><img src="assets/btn-github.svg"><img src="assets/btn-web.svg"></div></div></body>
+<!doctype html>
+<!-- Local preview of the README as GitHub renders it (dark theme). Open in a browser.
+     ?src=build/profile.sample.svg previews the fixture render from `npm run sample`. -->
+<meta charset="utf-8"><title>README preview</title>
+<style>
+  body { margin: 0; background: #0d1117; font: 14px -apple-system, "Segoe UI", sans-serif; color: #7d8590; }
+  .frame { max-width: 846px; margin: 24px auto; padding: 24px; border: 1px solid #30363d; border-radius: 6px; }
+  .crumb { font: 12px ui-monospace, monospace; margin-bottom: 16px; }
+  p { margin: 0 0 16px; text-align: center; } img { max-width: 100%; }
+</style>
+<div class="frame"><div class="crumb">skrumbach / README.md</div>
+  <p><img id="profile" src="profile/profile.svg" width="100%" alt="profile"></p>
+  <p><img src="assets/btn-linkedin.svg" alt="LinkedIn"> <img src="assets/btn-github.svg" alt="GitHub"> <img src="assets/btn-web.svg" alt="skrumbach.com"></p>
+</div>
+<script>const s = new URLSearchParams(location.search).get('src'); if (s) document.getElementById('profile').src = s;</script>
